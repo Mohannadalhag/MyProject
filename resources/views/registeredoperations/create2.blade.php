@@ -2,12 +2,11 @@
 @section('content')
     <div class="row">
         <div class="col-md-9 offset-md-2">
-            <h3>Edit Essentialoperation form</h3>
+            <h3>Create Registeredoperation form</h3>
 
 
-            <form action = "{{'/essentialoperations/'.$data['essentialoperation']->id}}" method = "POST">
+            <form action = "/registeredoperations" method = "POST">
                 @csrf
-                @method('PUT')
                 <div class="form-group">
                     <label for="name">name</label>
                     <input type="text" name = "name" id ="name" class = "form-control" value = "{{$data['essentialoperation']->name}}">
@@ -18,10 +17,9 @@
                 </div>
 
 
-                
-				
-                
-				<div class="form-group">
+
+
+                <div class="form-group">
                     <h2>debtor</h2>
                     <!-- Trigger the modal with a button -->
                     <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#Modal2">Choose accounts</button>
@@ -79,11 +77,12 @@
                     </div>
                 </div>
 
+                
 
 
 
 
-                <div class="form-group">
+				<div class="form-group">
                     <h2>creditor</h2>
                     <!-- Trigger the modal with a button -->
                     <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#Modal1">Choose accounts</button>
@@ -143,26 +142,34 @@
                 </div>
 
 
+
+                
+                
+				
+
                 
                 <script>
                     function myFunction(id) {
-                    var checkBox = document.getElementById(id);
-                    var text = document.getElementById("amount_"+id);
-                    if (checkBox.checked == true){
-                        text.style.display = "block";
-                        text.disabled = false;
-                    } else {
-                        text.style.display = "none";
-                        text.disabled = true;
-                    }
+                        var checkBox = document.getElementById(id);
+                        var text = document.getElementById("amount_"+id);
+                        if (checkBox.checked == true){
+                            text.style.display = "block";
+                            text.disabled = false;
+                        } else {
+                            text.style.display = "none";
+                            text.disabled = true;
+                        }
                     }
                 </script>
+
+
+
                 
 
 
 
                 <div class="form-group">
-                    <button type="submit" class = "btn btn-primary">Edit</button>
+                    <button type="submit" class = "btn btn-primary">Create</button>
                 </div>
             </form>
 

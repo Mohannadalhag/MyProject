@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+//namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Essentialoperation;
-use App\Operation;
-class OperationsController extends Controller
+//use Illuminate\Http\Request;
+//use App\Essentialoperation;
+//use App\Operation;
+/*class OperationsController extends Controller
 {
+    
     public function index() {
         //$essentialoperations = essentialoperation::take(5)->get() ;
         $essentialoperations = Essentialoperation::orderBy('id', 'desc')->paginate(5) ;
@@ -59,4 +60,4 @@ class OperationsController extends Controller
         return redirect('/essentialoperations')->with('status','essentialoperation was deleted !');
     }
     
-}
+}*/

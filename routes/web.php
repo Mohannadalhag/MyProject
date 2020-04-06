@@ -2,15 +2,27 @@
 
 
 
+///registeredoperationsController routes
+Route::get('/registeredoperations','registeredoperationsController@index')
+                                    ->name('registeredoperations.index');
+Route::get('/registeredoperations/create1','registeredoperationsController@create1')
+                                    ->name('registeredoperations.create1');
+Route::post('/registeredoperations/create2','registeredoperationsController@create2')
+                                    ->name('registeredoperations.create2');
+Route::post('/registeredoperations','registeredoperationsController@store')
+                                    ->name('registeredoperations.store');
+Route::get('/registeredoperations/{id}','registeredoperationsController@show')
+                                    ->name('registeredoperations.show');
+Route::get('/registeredoperations/{id}/edit','registeredoperationsController@edit')
+                                    ->name('registeredoperations.edit');
+Route::put('/registeredoperations/{id}','registeredoperationsController@update')
+                                    ->name('registeredoperations.update');
+Route::delete('/registeredoperations/{id}','registeredoperationsController@destroy')
+                                    ->name('registeredoperations.destroy');
 
-///operation routes
-Route::get('/operation','operationsController@index')->name('operations.index');
-Route::get('/operation/create','operationsController@create')->name('operations.create');
-Route::post('/operation','operationsController@store')->name('operations.store');
-Route::get('/operation/{id}','operationsController@show')->name('operations.show');
-Route::get('/operation/{id}/edit','operationsController@edit')->name('operations.edit');
-Route::put('/operation/{id}','operationsController@update')->name('operations.update');
-Route::delete('/operation/{id}','operationsController@destroy')->name('operations.destroy');
+
+
+
 
 ///accounts routes
 Route::get('/accounts','accountsController@index')->name('accounts.index');
@@ -24,18 +36,32 @@ Route::delete('/accounts/{id}','accountsController@destroy')->name('accounts.des
 
 
 ///essential operation routes
-Route::get('/essentialoperations','essentialoperationsController@index')->name('essentialoperations.index');
-Route::get('/essentialoperations/create','essentialoperationsController@create')->name('accessentialoperationsounts.create');
-Route::post('/essentialoperations','essentialoperationsController@store')->name('essentialoperations.store');
-Route::get('/essentialoperations/{id}','essentialoperationsController@show')->name('essentialoperations.show');
-Route::get('/essentialoperations/{id}/edit','essentialoperationsController@edit')->name('essentialoperations.edit');
-Route::put('/essentialoperations/{id}','essentialoperationsController@update')->name('essentialoperations.update');
-Route::delete('/essentialoperations/{id}','essentialoperationsController@destroy')->name('essentialoperations.destroy');
+Route::get('/essentialoperations','essentialoperationsController@index')
+                                    ->name('essentialoperations.index');
+Route::get('/essentialoperations/create','essentialoperationsController@create')
+                                    ->name('accessentialoperationsounts.create');
+Route::post('/essentialoperations','essentialoperationsController@store')
+                                    ->name('essentialoperations.store');
+Route::get('/essentialoperations/{id}','essentialoperationsController@show')
+                                    ->name('essentialoperations.show');
+Route::get('/essentialoperations/{id}/edit','essentialoperationsController@edit')
+                                    ->name('essentialoperations.edit');
+Route::put('/essentialoperations/{id}','essentialoperationsController@update')
+                                    ->name('essentialoperations.update');
+Route::delete('/essentialoperations/{id}','essentialoperationsController@destroy')
+                                    ->name('essentialoperations.destroy');
+
+
+
 
 
 Route::get('/', 'PagesController@index' );
 Route::get('/about', 'PagesController@about' );
 Route::get('/services', 'PagesController@services' );
+
+
+
+
 
 //posts routes
 

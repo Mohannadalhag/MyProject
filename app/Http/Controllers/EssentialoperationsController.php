@@ -92,7 +92,7 @@ class EssentialoperationsController extends Controller
             ->get())
             ->get();
         $accountsdebtor = Account:: orderBy('id', 'desc')    
-            ->select('accounts.name')
+            ->select('accounts.name','accounts.id')
             ->whereNotIn('accounts.name', Account::select('accounts.name')
             ->join('essentialoperationaccounts','essentialoperationaccounts.account_id','=','accounts.id')
             ->where('essentialoperationaccounts.essentialoperation_id',$id)
@@ -112,11 +112,11 @@ class EssentialoperationsController extends Controller
             'name' => 'required|max:20',
             'info'  => 'required|max:30'
         ]);
-        $essentialoperation = new Essentialoperation();
+        $essentialoperation = Essentialoperation::find($id);
+        $essentialoperation->essentialoperationaccounts->each->delete();
         $essentialoperation->name = $request->name ;
         $essentialoperation->info = $request->info;
         $essentialoperation->user_id = auth()->user()->id;
-        $essentialoperation->save();
 
         $creditors = $request->accounts['creditor'];
         $debtors = $request->accounts['debtor'];
@@ -139,13 +139,14 @@ class EssentialoperationsController extends Controller
             $essentialoperationaccount->type = 'debtor';
             $essentialoperationaccount->save();
         }
-        
+        $essentialoperation->save();
         return redirect('/essentialoperations')->with('status','essentialoperation was update !');
     }
 
     public function destroy($id)
     {
         $essentialoperation = Essentialoperation::find($id);
+        $essentialoperation->essentialoperationaccounts->each->delete();
         $essentialoperation->delete();
         return redirect('/essentialoperations')->with('status','essentialoperation was deleted !');
     }

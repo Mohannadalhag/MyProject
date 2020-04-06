@@ -18,38 +18,6 @@
 
 
                 
-				<div class="form-group">
-                    <h2>creditor</h2>
-                    <!-- Trigger the modal with a button -->
-                    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#Modal1">Choose accounts</button>
-                  
-                    <!-- Modal -->
-                    <div class="modal fade" id="Modal1" role="dialog">
-                        <div class="modal-dialog modal-sm">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                </div>
-                                <div class="modal-body">
-                                    @foreach($accounts as $account)
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" value = "{{$account->id}}" class="custom-control-input" id ="{{'creditor'.$account->name}}" name ="accounts[creditor][]"  onclick="myFunction('{{'creditor'.$account->name}}')">
-                                            <label class="custom-control-label" for="{{'creditor'.$account->name}}">{{$account->name}}</label>
-                                            <input type="text" name = "accounts[amount][creditor][]" value = "0" style="display:none;disabled:disabled" disabled="disabled" id = "{{'amount_creditor'.$account->name}}" class = "form-control">
-                                        </div>
-                                    @endforeach
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-
-                
                 <script>
                     function myFunction(id) {
                     var checkBox = document.getElementById(id);
@@ -98,6 +66,34 @@
 
 
                 
+				<div class="form-group">
+                    <h2>creditor</h2>
+                    <!-- Trigger the modal with a button -->
+                    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#Modal1">Choose accounts</button>
+                  
+                    <!-- Modal -->
+                    <div class="modal fade" id="Modal1" role="dialog">
+                        <div class="modal-dialog modal-sm">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+                                <div class="modal-body">
+                                    @foreach($accounts as $account)
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" value = "{{$account->id}}" class="custom-control-input" id ="{{'creditor'.$account->name}}" name ="accounts[creditor][]"  onclick="myFunction('{{'creditor'.$account->name}}')">
+                                            <label class="custom-control-label" for="{{'creditor'.$account->name}}">{{$account->name}}</label>
+                                            <input type="text" name = "accounts[amount][creditor][]" value = "0" style="display:none;disabled:disabled" disabled="disabled" id = "{{'amount_creditor'.$account->name}}" class = "form-control">
+                                        </div>
+                                    @endforeach
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
 
 
